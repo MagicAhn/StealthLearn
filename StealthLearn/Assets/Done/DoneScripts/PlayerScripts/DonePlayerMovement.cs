@@ -20,7 +20,7 @@ public class DonePlayerMovement : MonoBehaviour
         // 通过 获得 名为 GameController 的 GameObject上所附加的 DoneHashIDs 脚本
         hash = GameObject.FindGameObjectWithTag(DoneTags.gameController).GetComponent<DoneHashIDs>();
         // 设置 Shouting Layer 的 Weight(权重) 为 1
-        anim.SetLayerWeight(1, 1);
+        anim.SetLayerWeight(1, 1f);
     }
 
     // Use this for initialization
@@ -32,7 +32,7 @@ public class DonePlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         Single horizontal = Input.GetAxis("Horizontal");
-        Single vertical = Input.GetAxis("vertical");
+        Single vertical = Input.GetAxis("Vertical");
         Boolean sneak = Input.GetButton("Sneak");
 
         MovementManagement(horizontal, vertical, sneak);
@@ -41,8 +41,9 @@ public class DonePlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Boolean shout = Input.GetButtonDown("Attrack");
+        Boolean shout = Input.GetButtonDown("Attract");
         anim.SetBool(hash.shoutingBool, shout);
+
         AudioManagement(shout);
     }
 
@@ -51,10 +52,13 @@ public class DonePlayerMovement : MonoBehaviour
     {
         // 通过 sneaking 判断 Sneak 是否播放
         anim.SetBool(hash.sneakingBool, sneaking);
+        Debug.Log(222);
 
         // 通过 传入的 horizontal和vertical 判断 Player 是否 移动
         if (horizontal != 0.0f || vertical != 0.0f)
         {
+
+            Debug.Log(111);
             // 设置 Player旋转
             Rotating(horizontal, vertical);
             // 设置 speed 为5.5f（Animator中设置的边界值）
@@ -69,7 +73,7 @@ public class DonePlayerMovement : MonoBehaviour
     // 通过被 MovementManagement 控制而实现 Player 旋转
     void Rotating(Single horizontal, Single verticle)
     {
-        // 得到 水平面上的本地forward
+        // 得到 水平面上的本地forward（Player 是 垂直于 水平面的）
         Vector3 targetDirection = new Vector3(horizontal, 0f, verticle);
         // 根据 水平面上的本地forward 和 世界坐标系的 upward 创建一个 rotation
         Quaternion targetRotation = Quaternion.LookRotation(targetDirection, Vector3.up);
@@ -84,23 +88,41 @@ public class DonePlayerMovement : MonoBehaviour
     // 控制 脚步声和shout 播放,脚步声只有在 locomotion state 才会播放
     void AudioManagement(Boolean shout)
     {
-        // 如果 Player正处在 locomotion state，则有脚步声
-        if (anim.GetCurrentAnimatorStateInfo(0).nameHash.Equals(hash.locomotionState))
+        //// 注意 错误: anim.GetCurrentAnimatorStateInfo(0).nameHash.Equals(hash.locomotionState)
+        //// 如果 Player正处在 locomotion state，则有脚步声
+        //if (anim.GetCurrentAnimatorStateInfo(0).nameHash == hash.locomotionState)
+        //{
+        //    // 不能一直 让clip开始播放呀
+        //    if (!audio.isPlaying)
+        //    {
+        //        audio.Play();
+        //    }
+        //}
+        //else
+        //{
+        //    audio.Stop();
+        //}
+
+        //if (shout)
+        //{
+        //    AudioSource.PlayClipAtPoint(ShoutingClip, transform.position);
+        //}
+
+        // If the player is currently in the run state...
+        if (anim.GetCurrentAnimatorStateInfo(0).nameHash == hash.locomotionState)
         {
-            // 不能一直 让clip开始播放呀
+            // ... and if the footsteps are not playing...
             if (!audio.isPlaying)
-            {
+                // ... play them.
                 audio.Play();
-            }
         }
         else
-        {
+            // Otherwise stop the footsteps.
             audio.Stop();
-        }
 
+        // If the shout input has been pressed...
         if (shout)
-        {
+            // ... play the shouting clip where we are.
             AudioSource.PlayClipAtPoint(ShoutingClip, transform.position);
-        }
     }
 }

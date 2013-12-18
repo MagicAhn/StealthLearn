@@ -47,7 +47,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Done\DoneScripts\GameControllerScripts\DoneHashIDs.cs" />
-     <Compile Include="Assets\Done\DoneScripts\UnappliedScripts\DonePlayerMovement.cs" />
+     <Compile Include="Assets\Done\DoneScripts\LevelDynamics\DoneCameraMovement.cs" />
+     <Compile Include="Assets\Done\DoneScripts\PlayerScripts\DonePlayerMovement.cs" />
      <Compile Include="Assets\Done\DoneScripts\UnappliedScripts\DoneTags.cs" />
      <None Include="Assets\Shaders\ReflectiveDiffuseSpecTransp.shader" />
   </ItemGroup>
