@@ -88,41 +88,24 @@ public class DonePlayerMovement : MonoBehaviour
     // 控制 脚步声和shout 播放,脚步声只有在 locomotion state 才会播放
     void AudioManagement(Boolean shout)
     {
-        //// 注意 错误: anim.GetCurrentAnimatorStateInfo(0).nameHash.Equals(hash.locomotionState)
-        //// 如果 Player正处在 locomotion state，则有脚步声
-        //if (anim.GetCurrentAnimatorStateInfo(0).nameHash == hash.locomotionState)
-        //{
-        //    // 不能一直 让clip开始播放呀
-        //    if (!audio.isPlaying)
-        //    {
-        //        audio.Play();
-        //    }
-        //}
-        //else
-        //{
-        //    audio.Stop();
-        //}
-
-        //if (shout)
-        //{
-        //    AudioSource.PlayClipAtPoint(ShoutingClip, transform.position);
-        //}
-
-        // If the player is currently in the run state...
+        // 注意 错误: anim.GetCurrentAnimatorStateInfo(0).nameHash.Equals(hash.locomotionState)
+        // 如果 Player正处在 locomotion state，则有脚步声
         if (anim.GetCurrentAnimatorStateInfo(0).nameHash == hash.locomotionState)
         {
-            // ... and if the footsteps are not playing...
+            // 不能一直 让clip开始播放呀
             if (!audio.isPlaying)
-                // ... play them.
+            {
                 audio.Play();
+            }
         }
         else
-            // Otherwise stop the footsteps.
+        {
             audio.Stop();
+        }
 
-        // If the shout input has been pressed...
         if (shout)
-            // ... play the shouting clip where we are.
+        {
             AudioSource.PlayClipAtPoint(ShoutingClip, transform.position);
+        }
     }
 }

@@ -7,19 +7,26 @@ using System.Collections;
 /// </summary>
 public class DoneHashIDs : MonoBehaviour
 {
-    // DonePlayerAnimator
-    public Int32 speedFloat;
-    public Int32 sneakingBool;
-    public Int32 deadBool;
-    public Int32 shoutingBool;
-    public Int32 locomotionState;
+		// DonePlayerAnimator
+		public Int32 speedFloat;
+		public Int32 sneakingBool;
+		public Int32 deadBool;
+		public Int32 shoutingBool;
+		public Int32 openBool;
 
-    void Awake()
-    {
-        speedFloat = Animator.StringToHash("Speed");
-        sneakingBool = Animator.StringToHash("Sneaking");
-        deadBool = Animator.StringToHash("Dead");
-        shoutingBool = Animator.StringToHash("Shouting");
-        locomotionState = Animator.StringToHash("Base Layer.Locomotion");
-    }
+		public Int32 locomotionState;
+		public Int32 shoutState;
+
+
+		void Awake ()
+		{
+				speedFloat = Animator.StringToHash ("Speed");
+				sneakingBool = Animator.StringToHash ("Sneaking");
+				deadBool = Animator.StringToHash ("Dead");
+				shoutingBool = Animator.StringToHash ("Shouting");
+				openBool = Animator.StringToHash ("Open");
+
+				locomotionState = Animator.StringToHash ("Base Layer.Locomotion");
+				shoutState = Animator.StringToHash ("Shouting.Shout");
+		}
 }
