@@ -55,6 +55,7 @@
      <Compile Include="Assets\Done\DoneScripts\LevelDynamics\DoneDoorAnimation.cs" />
      <Compile Include="Assets\Done\DoneScripts\PlayerScripts\DonePlayerInventory.cs" />
      <Compile Include="Assets\Done\DoneScripts\PlayerScripts\DonePlayerMovement.cs" />
+     <Compile Include="Assets\Done\DoneScripts\UnappliedScripts\DoneAnimatorSetup.cs" />
      <Compile Include="Assets\Done\DoneScripts\UnappliedScripts\DoneTags.cs" />
      <None Include="Assets\Shaders\ReflectiveDiffuseSpecTransp.shader" />
   </ItemGroup>
