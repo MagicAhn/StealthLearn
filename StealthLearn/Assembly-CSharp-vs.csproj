@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Done\DoneScripts\EnemyScripts\DoneEnemyAI.cs" />
      <Compile Include="Assets\Done\DoneScripts\EnemyScripts\DoneEnemyAnimation.cs" />
+     <Compile Include="Assets\Done\DoneScripts\EnemyScripts\DoneEnemyShooting.cs" />
      <Compile Include="Assets\Done\DoneScripts\EnemyScripts\DoneEnemySight.cs" />
      <Compile Include="Assets\Done\DoneScripts\GameControllerScripts\DoneHashIDs.cs" />
      <Compile Include="Assets\Done\DoneScripts\GameControllerScripts\DoneLastPlayerSighting.cs" />

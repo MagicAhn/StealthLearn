@@ -47,7 +47,16 @@ public class DoneEnemyAnimation : MonoBehaviour
     {
         NavAnimSetup();
     }
-
+    void OnAnimatorMove()
+    {
+        // 通过 Animator 在帧变换时 的 位置 偏差 来计算 NavMeshAgent的 Velocity 
+        nav.velocity = anim.deltaPosition/Time.deltaTime;
+        
+        // 设置 enemy的 旋转 等同于 Animator的 旋转 
+        transform.rotation = anim.rootRotation;
+    }
+    
+    
     /// <summary>
     /// 计算角度 
     /// </summary>

@@ -14,6 +14,8 @@ public class DoneHashIDs : MonoBehaviour
     public Int32 shoutingBool;
     public Int32 openBool;
     public Int32 angularSpeedFloat;
+    public Int32 shotFloat;
+    public Int32 aimWeightFloat;
 
     public Int32 locomotionState;
     public Int32 shoutState;
@@ -26,9 +28,9 @@ public class DoneHashIDs : MonoBehaviour
         deadBool = Animator.StringToHash("Dead");
         shoutingBool = Animator.StringToHash("Shouting");
         openBool = Animator.StringToHash("Open");
-        speedFloat = Animator.StringToHash("");
         angularSpeedFloat = Animator.StringToHash("AngularSpeed");
-
+        shotFloat = Animator.StringToHash("Shot");
+        aimWeightFloat = Animator.StringToHash("AimWeight");
 
         locomotionState = Animator.StringToHash("Base Layer.Locomotion");
         shoutState = Animator.StringToHash("Shouting.Shout");
