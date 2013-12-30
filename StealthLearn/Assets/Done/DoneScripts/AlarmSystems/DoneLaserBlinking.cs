@@ -4,30 +4,32 @@ using System;
 
 public class DoneLaserBlinking : MonoBehaviour
 {
-		public Single onTime;
-		public Single offTime;
+    public Single onTime;
+    public Single offTime;
 
-		private Single timer;
-	
-		// Update is called once per frame
-		void Update ()
-		{
-				timer += Time.deltaTime;
+    private Single timer;
 
-				if (renderer.enabled && timer > onTime) {
-						SwitchBeam ();
-				}
-				if (!renderer.enabled && timer > offTime) {
-						SwitchBeam ();
-				}
-		}
+    // Update is called once per frame
+    void Update()
+    {
+        timer += Time.deltaTime;
 
-		void SwitchBeam ()
-		{
-				// 重置 timer
-				timer = 0f;
+        if (renderer.enabled && timer > onTime)
+        {
+            SwitchBeam();
+        }
+        if (!renderer.enabled && timer > offTime)
+        {
+            SwitchBeam();
+        }
+    }
 
-				renderer.enabled = !renderer.enabled;
-				light.enabled = !light.enabled;
-		}
+    void SwitchBeam()
+    {
+        // 重置 timer
+        timer = 0f;
+
+        renderer.enabled = !renderer.enabled;
+        light.enabled = !light.enabled;
+    }
 }

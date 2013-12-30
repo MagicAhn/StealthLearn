@@ -7,34 +7,36 @@ using System.Collections;
 /// </summary>
 public class DoneHashIDs : MonoBehaviour
 {
-		// DonePlayerAnimator
-		public Int32 speedFloat;
-		public Int32 sneakingBool;
-		public Int32 deadBool;
-		public Int32 shoutingBool;
-		public Int32 openBool;
-		public Int32 angularSpeedFloat;
-		public Int32 shotFloat;
-		public Int32 aimWeightFloat;
+    // DonePlayerAnimator
+    public Int32 speedFloat;
+    public Int32 sneakingBool;
+    public Int32 deadBool;
+    public Int32 shoutingBool;
+    public Int32 playerInSightBool;
+    public Int32 openBool;
+    public Int32 angularSpeedFloat;
+    public Int32 shotFloat;
+    public Int32 aimWeightFloat;
 
-		public Int32 locomotionState;
-		public Int32 shoutState;
-		public Int32 dyingState;
+    public Int32 locomotionState;
+    public Int32 shoutState;
+    public Int32 dyingState;
 
 
-		void Awake ()
-		{
-				speedFloat = Animator.StringToHash ("Speed");
-				sneakingBool = Animator.StringToHash ("Sneaking");
-				deadBool = Animator.StringToHash ("Dead");
-				shoutingBool = Animator.StringToHash ("Shouting");
-				openBool = Animator.StringToHash ("Open");
-				angularSpeedFloat = Animator.StringToHash ("AngularSpeed");
-				shotFloat = Animator.StringToHash ("Shot");
-				aimWeightFloat = Animator.StringToHash ("AimWeight");
+    void Awake()
+    {
+        speedFloat = Animator.StringToHash("Speed");
+        sneakingBool = Animator.StringToHash("Sneaking");
+        deadBool = Animator.StringToHash("Dead");
+        shoutingBool = Animator.StringToHash("Shouting");
+        openBool = Animator.StringToHash("Open");
+        playerInSightBool = Animator.StringToHash("PlayerInSight");
+        angularSpeedFloat = Animator.StringToHash("AngularSpeed");
+        shotFloat = Animator.StringToHash("Shot");
+        aimWeightFloat = Animator.StringToHash("AimWeight");
 
-				locomotionState = Animator.StringToHash ("Base Layer.Locomotion");
-				shoutState = Animator.StringToHash ("Shouting.Shout");
-				dyingState = Animator.StringToHash ("Base Layer.Dying");
-		}
+        locomotionState = Animator.StringToHash("Base Layer.Locomotion");
+        shoutState = Animator.StringToHash("Shouting.Shout");
+        dyingState = Animator.StringToHash("Base Layer.Dying");
+    }
 }

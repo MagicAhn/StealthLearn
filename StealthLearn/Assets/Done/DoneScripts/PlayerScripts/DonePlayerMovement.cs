@@ -52,13 +52,10 @@ public class DonePlayerMovement : MonoBehaviour
     {
         // 通过 sneaking 判断 Sneak 是否播放
         anim.SetBool(hash.sneakingBool, sneaking);
-        Debug.Log(222);
 
         // 通过 传入的 horizontal和vertical 判断 Player 是否 移动
         if (horizontal != 0.0f || vertical != 0.0f)
         {
-
-            Debug.Log(111);
             // 设置 Player旋转
             Rotating(horizontal, vertical);
             // 设置 speed 为5.5f（Animator中设置的边界值）

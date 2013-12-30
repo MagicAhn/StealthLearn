@@ -32,7 +32,7 @@ public class DoneEnemyAI : MonoBehaviour
 		{
 				nav = GetComponent<NavMeshAgent> ();
 				player = GameObject.FindGameObjectWithTag (DoneTags.player);
-				lastPlayerSighting = GetComponent<DoneLastPlayerSighting> ();
+				lastPlayerSighting = GameObject.FindGameObjectWithTag(DoneTags.gameController).GetComponent<DoneLastPlayerSighting> ();
 				enemySight = GetComponent<DoneEnemySight> ();
 		}
 		

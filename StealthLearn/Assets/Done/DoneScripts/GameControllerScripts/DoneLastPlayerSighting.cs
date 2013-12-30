@@ -30,14 +30,14 @@ public class DoneLastPlayerSighting : MonoBehaviour
     {
         mainLight = GameObject.FindGameObjectWithTag(DoneTags.mainLight).GetComponent<Light>();
         panicAudio = transform.FindChild("secondaryMusic").GetComponent<AudioSource>();
-        GameObject[] sirenGameObjects = GameObject.FindGameObjectsWithTag(DoneTags.siren);
+        //GameObject[] sirenGameObjects = GameObject.FindGameObjectsWithTag(DoneTags.siren);
 
-        // 将每个 Siren中的 audio填充到 Sirens数组
-        Sirens = new AudioSource[sirenGameObjects.Length];
-        for (int i = 0; i < Sirens.Length; i++)
-        {
-            Sirens[i] = sirenGameObjects[i].audio;
-        }
+        //// 将每个 Siren中的 audio填充到 Sirens数组
+        //Sirens = new AudioSource[sirenGameObjects.Length];
+        //for (int i = 0; i < Sirens.Length; i++)
+        //{
+        //    Sirens[i] = sirenGameObjects[i].audio;
+        //}
     }
 
     // Use this for initialization
@@ -75,17 +75,17 @@ public class DoneLastPlayerSighting : MonoBehaviour
         mainLight.intensity = Mathf.Lerp(mainLight.intensity, newIntensity, fadeSpeed * Time.deltaTime);
 
         // 依次播放 Sirens中的 audio
-        for (int i = 0; i < Sirens.Length; i++)
-        {
-            if (!Sirens[i].isPlaying && position == resetPosition)
-            {
-                Sirens[i].Play();
-            }
-            else if (position == resetPosition)
-            {
-                Sirens[i].Stop();
-            }
-        }
+        //for (int i = 0; i < Sirens.Length; i++)
+        //{
+        //    if (!Sirens[i].isPlaying && position == resetPosition)
+        //    {
+        //        Sirens[i].Play();
+        //    }
+        //    else if (position == resetPosition)
+        //    {
+        //        Sirens[i].Stop();
+        //    }
+        //}
     }
 
     void MusicFading()

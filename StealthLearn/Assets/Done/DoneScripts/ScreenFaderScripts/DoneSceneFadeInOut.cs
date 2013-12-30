@@ -36,7 +36,7 @@ public class DoneSceneFadeInOut : MonoBehaviour
 				if (guiTexture.color.a < 0.5f) {
 						// 把 guiTexture的颜色设置为 Color.clear,并且让GuiTexture 不可用
 						guiTexture.color = Color.clear;
-						guiText.enabled = false;
+						guiTexture.enabled = false;
 						// 场景已经加载完毕，所以 把 startScene 设置为 false，没有必要再加载了
 						startScene = false;
 				}
